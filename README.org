@@ -8,8 +8,6 @@ code, documentation and tests, and directly makes a number of useful tools
 available to more conveniently install, document and eventually publish your
 project.
 
-- GitHub repository: TODO
-- Documentation: TODO
 - License: BSD
 
 * Features
@@ -55,20 +53,31 @@ Then:
    as directory name and GitHub project name.
 2. =cd new-project=
 3. =git init=
-4. Install development requirements
+4. =git add .=
+5. =git commit -m "Initial commit"=
+6. Create a GitHub repository
+7. =git remote add origin git@github.com:<your-GitHub-username>/<your-project-name>.git=
+8. =git push -u origin master=
+9. Install development requirements. This installs some development
+   tools and installs the current project as "editable". This means
+   that any change you make to the source files is reflected in the
+   'installed' package.
    1. =make install_dev=
-5. Install requirements
-   1. =make install=
-6. Update README
-7. Write software
-8. Keep changelog
-9. Update documentation
-   1. make docs
-10. Commit code
-11. Update version in =VERSION= file
-12. Push to github
-13. Create release on GitHub
-14. Create GitHub pages documentation
+10. Write software. You can start by extending the script in
+    =examples/getting_started.py=, or create more scripts in the
+    =examples= directory. Once you identify common functionality, you
+    can add functions to the main module file in
+    =your_project_slug/your_project_slug.py=. The =getting_started.py= file
+    contains examples how to call these functions.
+11. Update README
+12. Keep changelog
+13. Update documentation
+    1. make docs
+14. Commit code
+15. Update version in =VERSION= file
+16. Push to GitHub
+17. Create release on GitHub
+18. Create GitHub pages documentation
 
 * Make commands
 
@@ -81,18 +90,16 @@ environment with
 #+BEGIN_SRC bash
 make install_dev
 #+END_SRC
-
-*** TODO this installs
-
+This command also install your current project as an "editable"
+project into your current Conda environment. This means that any
+change to your source files will be reflected in the "installed"
+environment.
 ** Install requirements
 Download and install your project requirements into your current conda
 environment with
 #+BEGIN_SRC bash
 make install
 #+END_SRC
-
-*** TODO this installs
-
 ** Update the documentation.
 Update your documentation with
 #+BEGIN_SRC bash
