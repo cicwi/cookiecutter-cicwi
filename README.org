@@ -85,24 +85,23 @@ development tools used for documentation, testing, and linting.
 make install_dev
 #+END_SRC
 
-Of course, once this is done, you can write software. You can start by
-extending the script in =examples/getting_started.py=, or create more
-scripts in the =examples= directory. Once you identify common
-functionality, you can add functions to the main module file in
+Of course, once this is done, you can start writing software. You can
+start by extending the script in =examples/getting_started.py=, or
+create more scripts in the =examples= directory. Once you identify
+common functionality, you can add functions to the main module file in
 =your_project_slug/your_project_slug.py=. The =getting_started.py=
 file contains examples how to call these functions.
 
 ** Step 4: Sharing your code
-To make your code useful for others, it is nice to have documentation,
-publish a Conda package, and release well-defined versions of your
-code.
+To make your code usable for others, it is a good idea to have
+documentation, publish a Conda package, and release versioned code.
 
-In your project's [[{{cookiecutter.project_slug}}/README.md][README.md]], you will find a checklist with
-well-defined steps to guide to a first release.
+In your project's [[{{cookiecutter.project_slug}}/README.md][README.md]], you will find a checklist with steps to
+ guide to a first release.
 
 In any case, do not forget to:
 1. Update the README
-2. Keep a changelog
+2. Keep a CHANGELOG
 3. Update your documentation using =make docs=
 4. Create GitHub pages documentation
 5. Update version in =VERSION= file for a new release
@@ -184,10 +183,10 @@ builds a conda package, which you can share on https://anaconda.org/.
 - Allard Hendriksen
 - Jan-Willem Buurlage
 - Willem Jan Palenstijn
-- Daniel Pelt
+- Daniël Pelt
 
 * How to contribute
-Contributions are always welcome. Please submit pull requests.
+Contributions are always welcome. Please submit a pull request.
 
 If you have any issues, questions, or remarks, then please open an
 issue on GitHub.
