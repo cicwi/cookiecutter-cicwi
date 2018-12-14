@@ -84,7 +84,7 @@ examples folder.
 
 ## Authors and contributors
 
-* **{{ cookiecutter.full_name }} ** - *Initial work*
+* **{{ cookiecutter.full_name }}** - *Initial work*
 
 See also the list of [contributors](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/contributors) who participated in this project.
 
