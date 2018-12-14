@@ -1,6 +1,7 @@
-#+TITLE: Cookiecutter CI CWI
+#+TITLE: CWI Computational Imaging's Python template
 
-A Cookiecutter template for starting your Python projects at CI CWI.
+This is a template for starting your Python projects at CWI's
+computational imaging group.
 
 This template lets you easily set up a Python package for your own projects.
 It automatically creates a directory tree with sensible locations for your
@@ -8,76 +9,138 @@ code, documentation and tests, and directly makes a number of useful tools
 available to more conveniently install, document and eventually publish your
 project.
 
-- License: BSD
+This template is BSD licensed.
 
-* Features
-
-- Documentation with Sphinx
+Features include:
+- Boilerplate for documentation with Sphinx
+- Boilerplate for unit testing
+- [[{{cookiecutter.project_slug}}/setup.py][Setup configuration]]
 - Conda packaging
+- Software License
+- A good initial [[{{cookiecutter.project_slug}}/README.md][README]] file
+- Various files such as a [[{{cookiecutter.project_slug}}/CHANGELOG.md][changelog]], [[{{cookiecutter.project_slug}}/CONTRIBUTING.rst][a contributor guide]], and more.
 
-* Quickstart
+* How to use
+
+** Step 1: Install cookiecutter
 Install the latest Cookiecutter if you haven't installed it yet (this requires
-Cookiecutter 1.4.0 or higher)::
+Cookiecutter 1.4.0 or higher):
 
 #+BEGIN_SRC bash
 pip install -U cookiecutter
 #+END_SRC
 
+** Step 2: Generate a new Python project
 
-Generate a Python package project::
-
+To generate a new project, execute the following in your terminal:
 #+BEGIN_SRC bash
-cookiecutter https://github.com/cicwi/cookiecutter-cicwi.git
+  cookiecutter https://github.com/cicwi/cookiecutter-cicwi.git
 #+END_SRC
 
-Then:
-1. Answer the questions that cookiecutter asks, for instance
-   #+BEGIN_EXAMPLE
-   $ cookiecutter gh:cicwi/cookiecutter-cicwi
-   You've downloaded /ufs/hendriks/.cookiecutters/cookiecutter-cicwi before. Is it okay to delete and re-download it? [yes]: yes
-   full_name [Your Name]: Allard Hendriksen
-   email [example@example.com]: allard.hendriksen@cwi.nl
-   github_username [cicwi]: ahendriksen
-   project_name [Human readable project name]: Cone Balls
-   project_slug [cone_balls]:
-   project_short_description [Python CI CWI boilerplate package.]: A package for bubble phantom generation using a cone beam CT geometry.
-   version [0.1.0]:
-   use_pytest [n]:
-   Select open_source_license:
-   1 - GNU General Public License v3
-   2 - Apache Software License 2.0
-   3 - Not open source
-   Choose from 1, 2, 3 [1]: 1
-   #+END_EXAMPLE
-   _Note_: The project's =slug= should resemble the project name without spaces, dots, or hyphens. It is used as e.g. the
-   directory name, GitHub project name, URL, Python library name and so on.
-2. =cd new-project=
-3. =git init=
-4. =git add .=
-5. =git commit -m "Initial commit"=
-6. Create a GitHub repository
-7. =git remote add origin git@github.com:<your-GitHub-username>/<your-project-name>.git=
-8. =git push -u origin master=
-9. Install development requirements. This installs some development
-   tools and installs the current project as "editable". This means
-   that any change you make to the source files is reflected in the
-   'installed' package.
-   1. =make install_dev=
-10. Write software. You can start by extending the script in
-    =examples/getting_started.py=, or create more scripts in the
-    =examples= directory. Once you identify common functionality, you
-    can add functions to the main module file in
-    =your_project_slug/your_project_slug.py=. The =getting_started.py= file
-    contains examples how to call these functions.
-11. Update README
-12. Keep changelog
-13. Update documentation
-    1. make docs
-14. Commit code
-15. Update version in =VERSION= file
-16. Push to GitHub
-17. Create release on GitHub
-18. Create GitHub pages documentation
+Cookiecutter will ask you some questions to get your project started.
+| Question                  | Default                            | Description                                                                                                                                                                                                                                                                                                          |
+|---------------------------+------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| full_name                 | Your Name                          | Your full name, e.g. Alice Johnson                                                                                                                                                                                                                                                                                   |
+| email                     | example@example.com                | Your e-mail address                                                                                                                                                                                                                                                                                                  |
+| github_username           | cicwi                              | The GitHub organization where you will host the code. Use your own GitHub username if you will host the code on your own page. It is nice to get this right, as several links will automatically be generated and link to your GitHub repository. You can always change this later with some judicious use of =grep= |
+| project_name              | Human readable project name        | The name of your project as you would write it for fellow humans.                                                                                                                                                                                                                                                    |
+| project_slug              | cone_balls                         | The project name without spaces, dots, or hyphens. This is used as the directory name, GitHub repository name, and Python package name for instance.                                                                                                                                                                 |
+| project_short_description | Python CI CWI boilerplate package. | A short description of your package.                                                                                                                                                                                                                                                                                 |
+| version                   | 0.1.0                              | The initial version of your package. This is a good default.                                                                                                                                                                                                                                                         |
+| use_pytest                | n                                  | Whether or not you want to use pytest as a testing framework. You can use the default 'no'.                                                                                                                                                                                                                          |
+| open_source_license       | GPLv3                              | Which license you want your code to fall under. Our group recommends GPLv3.                                                                                                                                                                                                                                          |
+
+** Step 3: Use your project
+To start using version control execute the following code
+#+BEGIN_SRC bash
+  cd your-project-name
+  git init                       # Initialized the git repository
+  git add .                      # Stages all files
+  git commit -m "Initial commit" # Creates an initial commit
+#+END_SRC
+You can also create a GitHub repository. Once you have one, push your
+code there by executing
+#+BEGIN_SRC bash
+git remote add origin git@github.com:<your-GitHub-username>/<your-project-name>.git
+git push -u origin master
+#+END_SRC
+
+It is recommended you create a separate =conda= environment for each
+project you work on. Do this by executing
+#+BEGIN_SRC bash
+conda create -n <your-project-name> python=3.6
+source activate <your-project-name>
+#+END_SRC
+Note the ~python=3.6~ in the command-line above. The project template
+works best for versions of Python 3.6 and higher. In fact, it has not
+been tested and might not work for older versions of Python at all.
+
+The following command does two things. First of all, it installs your
+newly created package as "editable" into the Conda environment. This
+means that any change you make to the source files is reflected in the
+'installed' package. Secondly, this command installs some required
+development tools used for documentation, testing, and linting.
+
+#+BEGIN_SRC bash
+make install_dev
+#+END_SRC
+
+Of course, once this is done, you can write software. You can start by
+extending the script in =examples/getting_started.py=, or create more
+scripts in the =examples= directory. Once you identify common
+functionality, you can add functions to the main module file in
+=your_project_slug/your_project_slug.py=. The =getting_started.py=
+file contains examples how to call these functions.
+
+** Step 4: Sharing your code
+To make your code useful for others, it is nice to have documentation,
+publish a Conda package, and release well-defined versions of your
+code.
+
+In your project's [[{{cookiecutter.project_slug}}/README.md][README.md]], you will find a checklist with
+well-defined steps to guide to a first release.
+
+In any case, do not forget to:
+1. Update the README
+2. Keep a changelog
+3. Update your documentation using =make docs=
+4. Create GitHub pages documentation
+5. Update version in =VERSION= file for a new release
+6. Create releases on GitHub
+
+
+* Overview of generated files
+
+If you create a new project called =human_readable_project_name=, the
+following files will be created:
+#+BEGIN_EXAMPLE
+.
+├── CHANGELOG.md                       # The changelog
+├── conda                              # Conda packaging metadata
+│   ├── build.sh
+│   ├── conda_build_config.yaml
+│   └── meta.yaml
+├── CONTRIBUTING.rst                   # Contributor guide
+├── doc_sources                        # Boilerplate for documentation generation
+│   ├── conf.py
+│   ├── index.rst
+│   ├── ...
+├── examples                           # Example scripts
+│   ├── getting_started.py
+├── human_readable_project_name        # Main source code directory
+│   ├── human_readable_project_name.py # Main module
+│   ├── __init__.py                    # Module dir
+│   └── VERSION                        # Version file
+├── LICENSE.md                         # License
+├── Makefile                           # Makefile: contains common 'make' recipes (see below)
+├── MANIFEST.in                        # Boilerplate used for packaging
+├── README.md                          # Readme
+├── setup.cfg                          # Configuration for python tooling
+├── setup.py                           # Packaging information for the package
+└── tests                              # Boilerplate for unit testing
+    ├── __init__.py
+    └── test_human_readable_project_name.py
+#+END_EXAMPLE
 
 * Make commands
 
@@ -120,13 +183,16 @@ builds a conda package, which you can share on https://anaconda.org/.
 * Authors and contributors
 - Allard Hendriksen
 - Jan-Willem Buurlage
+- Willem Jan Palenstijn
+- Daniel Pelt
 
 * How to contribute
-Contributions are always welcome. Please submit pull requests against
-the ~develop~ branch.
+Contributions are always welcome. Please submit pull requests.
 
 If you have any issues, questions, or remarks, then please open an
 issue on GitHub.
 
+* Acknowledgements
+This template is based on Audrey Roy Greenfeld's [[https://github.com/audreyr/cookiecutter-pypackage][cookiecutter-pypackage]].
 * License
 This project is licensed under the BSD License - see the =LICENSE= file for details
