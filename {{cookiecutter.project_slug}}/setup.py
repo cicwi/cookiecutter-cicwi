@@ -15,7 +15,11 @@ with open('CHANGELOG.md') as history_file:
 with open(os.path.join('{{ cookiecutter.project_slug }}','VERSION')) as version_file:
     version = version_file.read().strip()
 
-requirements = [ ]
+requirements = [
+    # Add your project's requirements here, e.g.,
+    # 'astra-toolbox',
+    # 'sacred>=0.7.2',
+]
 
 setup_requirements = [{%- if cookiecutter.use_pytest == 'y' %}'pytest-runner',{%- endif %} ]
 

@@ -29,12 +29,17 @@ package for optimal usability. The following has already been completed:
 - [ ] A conda package
 	- Required packages have been added to `setup.py`, for instance,
 	  ```
-	  requirements = [ ]
+	  requirements = [
+          # Add your project's requirements here, e.g.,
+          # 'astra-toolbox',
+          # 'sacred>=0.7.2',
+      ]
 	  ```
 	  Has been replaced by
 	  ```
 	  requirements = [
-	      'sacred>=0.7.2'
+	      'astra-toolbox',
+	      'sacred>=0.7.2',
       ]
       ```
 	- All "conda channels" that are required for building and
