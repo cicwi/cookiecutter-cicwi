@@ -49,8 +49,8 @@ Then:
    3 - Not open source
    Choose from 1, 2, 3 [1]: 1
    #+END_EXAMPLE
-   Note that =slug= means a project name without spaces that is usable
-   as directory name and GitHub project name.
+   _Note_: The project's =slug= should resemble the project name without spaces, dots, or hyphens. It is used as e.g. the
+   directory name, GitHub project name, URL, Python library name and so on.
 2. =cd new-project=
 3. =git init=
 4. =git add .=
