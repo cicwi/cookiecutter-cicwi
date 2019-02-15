@@ -27,36 +27,46 @@ package for optimal usability. The following has already been completed:
 	- The release has been marked a release on GitHub.
 	- For more info, see the [Software Release Guide](https://cicwi.github.io/software-guides/software-release-guide).
 - [ ] A conda package
-	- Required packages have been added to `setup.py`, for instance,
-	  ```
-	  requirements = [
+    - Required packages have been added to `setup.py`, for instance,
+      ```
+      requirements = [
           # Add your project's requirements here, e.g.,
           # 'astra-toolbox',
           # 'sacred>=0.7.2',
-      ]
-	  ```
-	  Has been replaced by
-	  ```
-	  requirements = [
-	      'astra-toolbox',
-	      'sacred>=0.7.2',
+          # 'tables==3.4.4',
       ]
       ```
-	- All "conda channels" that are required for building and
+      has been replaced by
+      ```
+      requirements = [
+          'astra-toolbox',
+          'sacred>=0.7.2',
+          'tables==3.4.4',
+      ]
+      ```
+    - All "conda channels" that are required for building and
       installing the package have been added to the
       `Makefile`. Specifically, replace
-	  ```
-      conda_package: install_dev
-      	conda build conda/
       ```
-	  by
-	  ```
-      conda_package: install_dev
-      	conda build conda/ -c some-channel -c some-other-channel
+      conda_package:
+        conda install conda-build -y
+        conda build conda/
+      ```
+      by
+      ```
+      conda_package:
+        conda install conda-build -y
+        conda build conda/ -c some-channel -c some-other-channel
       ```
     - Conda packages have been built successfully with `make conda_package`.
-	- These conda packages have been uploaded to [Anaconda](https://anaconda.org).
-	- The installation instructions (below) have been updated.
+    - These conda packages have been uploaded to
+      [Anaconda](https://anaconda.org). [This](http://docs.anaconda.com/anaconda-cloud/user-guide/getting-started/#cloud-getting-started-build-upload)
+      is a good getting started guide.
+    - The installation instructions (below) have been updated. Do not
+      forget to add the required channels, e.g., `-c some-channel -c
+      some-other-channel`, and your own channel, e.g., `-c {{
+      cookiecutter.github_username }}`.
+
 
 ## Getting Started
 

@@ -19,6 +19,7 @@ requirements = [
     # Add your project's requirements here, e.g.,
     # 'astra-toolbox',
     # 'sacred>=0.7.2',
+    # 'tables==3.4.4',
 ]
 
 setup_requirements = [{%- if cookiecutter.use_pytest == 'y' %}'pytest-runner',{%- endif %} ]
